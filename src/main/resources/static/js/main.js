@@ -83,7 +83,7 @@ async function getUserForDelete(id) {
     let user = await fetch('/api/admin/' + id).then(response => response.json());
 
     $(".deleteForm #id2").val(user.id);
-    $(".deleteForm #firstName2").val(user.name);
+    $(".deleteForm #name2").val(user.name);
     $(".deleteForm #lastName2").val(user.lastName);
     $(".deleteForm #age2").val(user.age);
     $(".deleteForm #email2").val(user.email);
@@ -95,4 +95,33 @@ async function getUserForDelete(id) {
         window.location.href = "/admin"
     })
 }
+
+
+$("#addNewUser").submit(async function (event) {
+    event.preventDefault()
+
+    let role3 = [];
+    let arr = Array.from(document.getElementById("role3").options).filter(option => option.selected).map(option => option.value)
+    for (let i = 0; i < arr.length; i++) {
+        role3.push({id: arr[i]})
+    }
+
+    let user = {
+        name: $("#name3").val(),
+        lastName: $("#lastName3").val(),
+        age: $("#age3").val(),
+        email: $("#email3").val(),
+        password: $("#password3").val(),
+        roles: role3
+    }
+
+    await fetch('/api/admin',
+        {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(user)
+        })
+        .then(result => console.log(result))
+    window.location.href = "/admin"
+})
 

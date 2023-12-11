@@ -32,8 +32,8 @@ public class AdminController {
 
     @GetMapping()
     public String adminPage(Model model, Principal principal){
-        model.addAttribute("userInfo", userRepository.findUserByEmail(principal.getName()));
-        model.addAttribute("roles", roleService.getAllRoles());
+//        model.addAttribute("userInfo", userRepository.findUserByEmail(principal.getName()));
+//        model.addAttribute("roles", roleService.getAllRoles());
         model.addAttribute("users", userService.getAllUsers());
         return "admin";
     }
@@ -47,21 +47,21 @@ public class AdminController {
 //        return "admin";
 //    }
 
-    @PostMapping("/new")
-    public String addUser(@ModelAttribute("user") User user) {
-        userService.addUser(user);
-        return "redirect:/admin";
-    }
+//    @PostMapping("/new")
+//    public String addUser(@ModelAttribute("user") User user) {
+//        userService.addUser(user);
+//        return "redirect:/admin";
+//    }
 
-    @PostMapping("/delete")
-    public String deleteUser(@RequestParam(value = "id") Long id) {
-        userService.deleteUser(id);
-        return "redirect:/admin";
-    }
+//    @PostMapping("/delete")
+//    public String deleteUser(@RequestParam(value = "id") Long id) {
+//        userService.deleteUser(id);
+//        return "redirect:/admin";
+//    }
 
-    @PostMapping("/edit")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.updateUser(user);
-        return "redirect:/admin";
-    }
+//    @PostMapping("/edit")
+//    public String updateUser(@ModelAttribute("user") User user) {
+//        userService.updateUser(user);
+//        return "redirect:/admin";
+//    }
 }

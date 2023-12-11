@@ -28,9 +28,26 @@ public class RestController {
     }
 
     @PutMapping
-    public ResponseEntity<User> editUser(@RequestBody User user){
+    public ResponseEntity<User> editUser(@RequestBody User user) {
         userService.updateUser(user);
         return ResponseEntity.ok().body(user);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") long id) {
+        userService.deleteUser(id);
+    }
+
+    @PostMapping()
+    public ResponseEntity<User> addUser(@RequestBody User user){
+        userService.addUser(user);
+        return ResponseEntity.ok().body(user);
+    }
+
+//    @PostMapping("/new")
+//    public String addUser(@ModelAttribute("user") User user) {
+//        userService.addUser(user);
+//        return "redirect:/admin";
+//    }
 
 }
