@@ -12,6 +12,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserDAO userDAO;
+
     private final UserRepository userRepository;
 
     public UserServiceImpl(UserDAO userDAO, UserRepository userRepository) {

@@ -43,11 +43,4 @@ public class RestController {
         userService.addUser(user);
         return ResponseEntity.ok().body(user);
     }
-
-//    @PostMapping("/new")
-//    public String addUser(@ModelAttribute("user") User user) {
-//        userService.addUser(user);
-//        return "redirect:/admin";
-//    }
-
 }

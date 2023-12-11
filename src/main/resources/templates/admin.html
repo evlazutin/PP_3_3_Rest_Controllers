@@ -50,7 +50,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#usersTable">Users Table</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#addUser">New User</a>
                         </li>
@@ -66,7 +65,7 @@
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name</th>
+                                            <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Age</th>
                                             <th>Email</th>
@@ -76,7 +75,6 @@
                                         </tr>
                                         </thead>
                                         <tbody id="tableBody">
-                                        <!--                                        Table from JS #AllUsersTable-->
                                         </tbody>
                                     </table>
                                     <th:block th:each="user : ${users}">
@@ -96,7 +94,6 @@
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-
 
                                                         <div class="modal-body text-center">
                                                             <div class="form-group">
@@ -175,8 +172,6 @@
                                                 </div>
                                             </div>
                                         </form>
-
-
                                         <form class="deleteForm" th:method="GET" id="delF"
                                               th:attr="data-id2=${user.getId()}"
                                               th:object="${user}">
@@ -189,14 +184,12 @@
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
 
-
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="deleteUser">Delete
                                                                 user</h5>
                                                             <button type="button" class="close"
                                                                     data-dismiss="modal"></button>
                                                         </div>
-
 
                                                         <div class="modal-body text-center">
 
@@ -256,7 +249,6 @@
                                                                        disabled/>
                                                             </div>
 
-
                                                             <div class="form-group">
                                                                 <label for="role2"
                                                                        class="col-form-label"><b>Role</b></label>
@@ -281,16 +273,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </form>
-
-
                                     </th:block>
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="tab-pane fade" id="addUser">
                             <div class="card">
                                 <div class="card-header">
@@ -300,14 +287,13 @@
                                         <form class="offset-md-4 col-md-3 mt-4 mb-4"
                                               th:align="center"
                                               th:action="@{/admin}"
-                                              id="addNewUser"
-                                              >
+                                              id="addNewUser">
 
                                             <label for="name3" class="font-weight-bold text-center">First name</label>
                                             <input type="text"
                                                    class="form-control"
                                                    id="name3"
-                                                   />
+                                            />
                                             <br>
 
                                             <label for="lastName3" class="font-weight-bold text-center">Last
@@ -315,21 +301,21 @@
                                             <input type="text"
                                                    class="form-control"
                                                    id="lastName3"
-                                                   />
+                                            />
                                             <br>
 
                                             <label for="age3" class="font-weight-bold text-center">Age</label>
                                             <input type="number"
                                                    class="form-control"
                                                    id="age3"
-                                                   />
+                                            />
                                             <br>
 
                                             <label for="email3" class="font-weight-bold text-center">Email</label>
                                             <input type="text"
                                                    class="form-control"
                                                    id="email3"
-                                                   />
+                                            />
                                             <br>
 
                                             <label for="password3"
@@ -337,7 +323,7 @@
                                             <input type="text"
                                                    class="form-control"
                                                    id="password3"
-                                                   />
+                                            />
                                             <br>
 
                                             <label for="role3"><b>Role</b></label>
@@ -358,47 +344,32 @@
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
+                </div>
+                <div class="tab-pane fade pl-3" style="height: 900px;" id="user"
+                     role="tabpanel" aria-labelledby="user">
+                    <h1>User information-page</h1>
+                    <div class="pl-3 pt-1 d-flex border-top border-left border-right"><h4> About user</h4></div>
+                    <div class="bg-white border p-3">
+                        <table class="table table-striped border-top" id="myTable">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tableBodyUser" th:attr="data-id=${#authentication.getPrincipal().getId()}">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-    <!--                <div class="tab-pane fade pl-3" style="height: 900px;" id="user"-->
-    <!--                     role="tabpanel" aria-labelledby="user">-->
-    <!--                    <h1>User information-page</h1>-->
-    <!--                    <div class="pl-3 pt-1 d-flex border-top border-left border-right"><h4> About user</h4></div>-->
-    <!--                    <div class="bg-white border p-3">-->
-    <!--                        <table class="table table-striped border-top">-->
-    <!--                            <thead>-->
-    <!--                            <tr>-->
-    <!--                                <th>ID</th>-->
-    <!--                                <th>First Name</th>-->
-    <!--                                <th>Last Name</th>-->
-    <!--                                <th>Age</th>-->
-    <!--                                <th>Email</th>-->
-    <!--                                <th>Role</th>-->
-    <!--                            </tr>-->
-    <!--                            </thead>-->
-    <!--                            <tbody>-->
-    <!--                            <tr th:object="${userInfo}">-->
-    <!--                                <td th:text="${userInfo.id}">User ID</td>-->
-    <!--                                <td th:text="${userInfo.username}">Name</td>-->
-    <!--                                <td th:text="${userInfo.lastName}">Last Name</td>-->
-    <!--                                <td th:text="${userInfo.age}">Age</td>-->
-    <!--                                <td th:text="${userInfo.email}">Email</td>-->
-    <!--                                <td><span th:text="${userInfo.roles}"> Roles </span></td>-->
-    <!--                            </tr>-->
-    <!--                            </tbody>-->
-    <!--                        </table>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-</div>
-</div>
-</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -419,5 +390,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{js/main.js}" src="../static/js/main.js"></script>
+<script type="text/javascript" th:src="@{js/user.js}" src="../static/js/user.js"></script>
 </body>
 </html>

@@ -1,8 +1,7 @@
 $(document).ready(async function () {
 
-        let url = '/api' + location.href.substring(location.href.indexOf('/admin'), location.href.length)
-        let userId = $("#tableBody").data('id')
-        if (url.endsWith("users") == true) url = '/api/admin/' + userId
+        let userId = $("#tableBodyUser").data('id')
+        let  url = '/api/admin/' + userId
         let users = await fetch(url).then(response => response.json())
 
         let listRoles = '';
@@ -11,7 +10,7 @@ $(document).ready(async function () {
         }
         let userid = users.id;
         let username = users.name;
-        let userlastname = users.last_name;
+        let userlastname = users.lastName;
         let userage = users.age;
         let useremail = users.email;
         let userroles = listRoles;

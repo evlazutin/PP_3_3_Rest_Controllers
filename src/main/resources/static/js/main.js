@@ -124,4 +124,3 @@ $("#addNewUser").submit(async function (event) {
         .then(result => console.log(result))
     window.location.href = "/admin"
 })
-
